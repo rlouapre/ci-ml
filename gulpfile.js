@@ -32,7 +32,10 @@ console.log(dockerOptions)
 var username = 'admin';
 var password = 'admin';
 var realm = 'public';
-var host = dockerOptions.host || 'localhost';
+var host = 'localhost';
+if (dockerOptions && dockerOptions.host) {
+  host = dockerOptions.host
+}
 var image = 'rlouapre/centos6-ml:7.0-4.3';
 
 // var port = 
