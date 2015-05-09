@@ -1,0 +1,24 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - docker info
+    #- docker build -t circleci/elasticsearch .
+    - docker pull rlouapre/centos6-ml:7.0-4.3
+
+test:
+  override:
+    #- docker run -d -p 9200:9200 circleci/elasticsearch; sleep 10
+    - docker run --name ml -d -p 8000:8000 -p 8001:8001 -p 8002:8002 -p 9200:9200 -p 9201:9201 rlouapre/centos6-ml:7.0-4.3
+    #- curl --retry 10 --retry-delay 5 -v http://localhost:9200
+    - bootstrap.sh
+
+# deployment:
+#   hub:
+#     branch: master
+#     commands:
+#       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASSWORD
+#       - docker push circleci/elasticsearch
