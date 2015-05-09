@@ -2,7 +2,7 @@ machine:
   services:
     - docker
   ruby:
-    version: rbx-2.0.0-p451
+    #version: rbx-2.0.0-p451
 
 dependencies:
   override:
@@ -20,6 +20,7 @@ test:
     - chmod 755 ./bootstrap.sh
     - ./bootstrap.sh
     - cd roxy
+    - chmod 755 ./ml
     - ./ml help
 
 # deployment:
