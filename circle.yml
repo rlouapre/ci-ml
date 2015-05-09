@@ -1,6 +1,8 @@
 machine:
   services:
     - docker
+  ruby:
+    version: rbx-2.0.0-p451
 
 dependencies:
   override:
@@ -17,6 +19,8 @@ test:
     #- curl --retry 10 --retry-delay 5 -v http://localhost:9200
     - chmod 755 ./bootstrap.sh
     - ./bootstrap.sh
+    - cd roxy
+    - ./ml help
 
 # deployment:
 #   hub:
