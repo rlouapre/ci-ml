@@ -19,7 +19,7 @@ test:
     #- curl --retry 10 --retry-delay 5 -v http://localhost:9200
     - chmod 755 ./bootstrap.sh
     - ./bootstrap.sh
-    - cd ./roxy
+    - cd ~/roxy
     - ls
     - chmod 755 ml
     - ml help
