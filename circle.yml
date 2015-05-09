@@ -19,7 +19,7 @@ test:
     - cd roxy && ls
     - ls
     - cd roxy && chmod 755 ml
-    - cd roxy && ml help
+    - cd roxy && ./ml help
 
 # deployment:
 #   hub:
