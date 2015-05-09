@@ -16,10 +16,10 @@ test:
     # - sleep 10
     # - chmod 755 ./bootstrap.sh
     # - ./bootstrap.sh
-    - cd ./roxy
+    - cd roxy && ls
     - ls
-    - chmod 755 ml
-    - ml help
+    - cd roxy && chmod 755 ml
+    - cd roxy && ./ml help
 
 # deployment:
 #   hub:
