@@ -19,7 +19,7 @@ test:
     - cd roxy && chmod 755 ml 
     - cd roxy && ./ml ci bootstrap
     - cd roxy && ./ml ci deploy modules
-    - npm install && gulp
+    - npm install -g gulp && npm install && gulp
     - curl --anyauth --user admin:password localhost:9305/start.xqy -v
 
 # deployment:
