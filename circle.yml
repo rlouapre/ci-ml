@@ -19,8 +19,8 @@ test:
     # - cd roxy && ls
     # - ls
     # - cd roxy && chmod 755 ml
-    - cd roxy && chmod 755 ml && ./ml local bootstrap --ml.local-server=localhost
-    - cd roxy && ./ml local deploy modules --ml.local-server=localhost
+    - cd roxy && chmod 755 ml && ./ml local bootstrap --ml.local-server=localhost --ml.password=password
+    - cd roxy && ./ml local deploy modules --ml.local-server=localhost --ml.password=password
     - curl --anyauth --user admin:admin localhost:9305/start.xqy
 
 # deployment:
