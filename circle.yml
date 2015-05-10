@@ -8,18 +8,20 @@ dependencies:
   override:
     - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASSWORD
     - docker info
-    # - docker pull rlouapre/centos6-ml:7.0-4.3
+    - docker pull rlouapre/centos6-ml:7.0-4.3
 
 test:
   override:
-    # - docker run --name ml7 -d -p 8000:8000 -p 8001:8001 -p 8002:8002 -p 9200:9200 -p 9201:9201 rlouapre/centos6-ml:7.0-4.3
-    # - sleep 10
-    # - chmod 755 ./bootstrap.sh
-    # - ./bootstrap.sh
+    - docker run --name ml7 -d -p 8000:8000 -p 8001:8001 -p 8002:8002 -p 9305:9305 -p 9306:9306 rlouapre/centos6-ml:7.0-4.3
+    - sleep 10
+    - chmod 755 ./bootstrap.sh
+    - ./bootstrap.sh
     # - cd roxy && ls
     # - ls
     # - cd roxy && chmod 755 ml
-    - cd roxy && chmod 755 ml && ./ml help
+    - cd roxy && chmod 755 ml && ./ml local bootstrap --ml.local-server=localhost
+    - cd roxy && ./ml local deploy modules --ml.local-server=localhost
+    - curl --anyauth --user admin:admin localhost:9305/start.xqy
 
 # deployment:
 #   hub:
