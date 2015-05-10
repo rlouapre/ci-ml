@@ -12,7 +12,7 @@ dependencies:
 
 test:
   override:
-    - docker run --name ml7 -d -p 8000:8000 -p 8001:8001 -p 8002:8002 -p 9305:9305 -p 9306:9306 rlouapre/centos6-ml:7.0-4.3
+    - docker run --name ml7 -d -p 8000:8000 -p 8001:8001 -p 8002:8002 -p 9305:9305 -p 9306:9306 rlouapre/centos6-ml
     - sleep 5
     - chmod 755 ./bootstrap.sh
     - ./bootstrap.sh
@@ -20,7 +20,7 @@ test:
     - cd roxy && ./ml ci bootstrap
     - cd roxy && ./ml ci deploy modules
     - npm install -g gulp && npm install && gulp
-    - curl --anyauth --user admin:password localhost:9305/start.xqy -v
+    - curl --anyauth --user $ML_USER:$ML_PASSWORD localhost:9305/start.xqy -v
 
 # deployment:
 #   hub:
