@@ -260,8 +260,12 @@ gulp.task('docker:build', function (cb) {
 
 // gulp.task('test', ['coverage', 'lint', 'mocha', 'xray']);
 // gulp.task('default', ['test', 'clean', 'build']);
+// gulp.task('default', function() {
+//     runSequence('test', 'clean', 'build', function() {
+//         console.log('Build completed.');
+//     });
+// });
+
 gulp.task('default', function() {
-    runSequence('test', 'clean', 'build', function() {
-        console.log('Build completed.');
-    });
+  console.log('Build completed.');
 });
